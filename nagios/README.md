@@ -10,6 +10,14 @@ The Opsmatic Nagios integration is written in Ruby, it should run out of the box
 
 1. Install the `opsmatic-nagios.rb` script in your directory of choice. For our examples we'll place it in `/usr/local/bin/opsmatic-nagios.rb`
 
+    To check your Ruby version:
+
+	ruby -v
+
+    To install dependencies on Ubuntu:
+
+	sudo apt-get install ruby-json rubygems
+
 1. Define a new command in your Nagios configuration:
 
         define command {
