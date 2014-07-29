@@ -36,6 +36,10 @@ The Opsmatic Nagios integration is written in Ruby, it should run out of the box
 	
 1. Add the newly defined `opsmatic` contact to your appropriate contact groups, or directly to hosts and services that you wish you publish notifications for to Opsmatic
 
+1. **NOTE** If you are using Nagios Core 4.x or Nagios XI you need to set the following configuration option in your `nagios.cfg` file (this options isn't required for earlier versions of Nagios):
+
+    `enable_environment_macros=1`
+
 1. Restart Nagios and you're up and running!
 
 ## Advanced Configuration
