@@ -96,6 +96,7 @@ if not data[:service][:state].empty?
   event[:data][:notification_source] = "service"
   event[:data][:service] = data[:service]
   event[:status] = status_map[data[:service][:state]]
+  event[:category] = "notifications"
 else
   # we're a host event
   event[:summary] = sprintf "%s on %s (%s)",
@@ -106,6 +107,7 @@ else
   event[:data][:notification_source] = "host"
   event[:data][:host] = data[:host]
   event[:status] = status_map[data[:host][:state]]
+  event[:category] = "notifications"
 end
 
 # send the event
