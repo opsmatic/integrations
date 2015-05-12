@@ -74,15 +74,17 @@ data = {
 event = {
   :timestamp    => data[:notification_time],
   :source       => "nagios",
-  :subject_type => "hostname",
   :type         => "notifications/nagios",
   :data         => {},
+  :scopes       => {
+    :hostname => data[:host][:name]
+  }
 }
 
 if options[:name_pref] == "name"
-  event[:subject] = data[:host][:name]
+  event[:scopes][:hostname] = data[:host][:name]
 else
-  event[:subject] = data[:host][:alias]
+  event[:scopes][:hostname] = data[:host][:alias]
 end
 
 # if we have service state we're a service event
