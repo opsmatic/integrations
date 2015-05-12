@@ -81,12 +81,6 @@ event = {
   }
 }
 
-if options[:name_pref] == "name"
-  event[:scopes][:hostname] = data[:host][:name]
-else
-  event[:scopes][:hostname] = data[:host][:alias]
-end
-
 # if we have service state we're a service event
 if not data[:service][:state].empty?
   event[:summary] = sprintf "%s with '%s' on %s (%s)",
