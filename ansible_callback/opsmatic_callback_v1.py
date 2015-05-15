@@ -24,7 +24,8 @@ class CallbackModule(object):
 				"summary": summary,
 				"data": body,
 				"type": event_type,
-				"timestamp": int(time.time())
+				"timestamp": int(time.time()),
+				"scopes": {}
 			}
 
 			if source:
@@ -35,8 +36,7 @@ class CallbackModule(object):
 			if status:
 				event["status"] = status
 			if host:
-				event["subject_type"] = "hostname"
-				event["subject"] = host
+				event["scopes"]["hostname"] = host
 	
 			data = [event]
 			url = "%s/webhooks/events" % self.opsmatic_http
