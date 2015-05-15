@@ -77,7 +77,7 @@ event = {
   :type         => "notifications/nagios",
   :data         => {},
   :scopes       => {
-    :hostname => data[:host][:name] ? options[:name_pref] == "name" : data[:host][:alias]
+    :hostname => options[:name_pref] == "name" ? data[:host][:name] : data[:host][:alias]
   }
 }
 
