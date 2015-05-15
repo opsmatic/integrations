@@ -121,8 +121,9 @@ event = {
   :timestamp    => data[:notification_time],
   :source       => "zabbix",
   :type         => "notifications/zabbix",
-  :subject_type => "hostname",
-  :subject      => data[:host],
+  :scopes       => {
+    :hostname => data[:host]
+  },
   :summary      => summary,
   :data         => data,
   :category     => "notifications",
